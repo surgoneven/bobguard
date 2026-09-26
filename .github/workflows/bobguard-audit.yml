@@ -1,0 +1,96 @@
+name: BobGuard Security Audit
+
+on:
+  push:
+    branches: [main, master, develop]
+  pull_request:
+    branches: [main, master, develop]
+  workflow_dispatch:
+
+jobs:
+  bobguard-audit:
+    name: BobGuard Audit & Test
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+          cache-dependency-path: |
+            bobguard/package-lock.json
+            demo-app/package-lock.json
+
+      - name: Install BobGuard dependencies
+        run: npm ci
+        working-directory: bobguard
+
+      - name: Install demo-app dependencies
+        run: npm ci
+        working-directory: demo-app
+
+      # -----------------------------------------------------------------------
+      # Run BobGuard engine test suite (stress tests + fixer tests)
+      # -----------------------------------------------------------------------
+      - name: Run BobGuard tests
+        run: npm test
+        working-directory: bobguard
+
+      # -----------------------------------------------------------------------
+      # Run demo-app test suite (must stay green)
+      # -----------------------------------------------------------------------
+      - name: Run demo-app tests
+        run: npm test
+        working-directory: demo-app
+
+      # -----------------------------------------------------------------------
+      # BobGuard security audit of demo-app → SARIF output
+      # -----------------------------------------------------------------------
+      - name: Run BobGuard audit (SARIF)
+        run: node bobguard/bin/bobguard.js audit ./demo-app --format sarif --out results.sarif.json
+
+      # -----------------------------------------------------------------------
+      # Upload SARIF results to GitHub Advanced Security / Code Scanning
+      # -----------------------------------------------------------------------
+      - name: Upload SARIF to GitHub Code Scanning
+        uses: github/codeql-action/upload-sarif@v3
+        if: always()
+        with:
+          sarif_file: results.sarif.json
+          category: bobguard-${{ matrix.node-version }}
+
+      # -----------------------------------------------------------------------
+      # Generate HTML audit report as a CI artifact
+      # -----------------------------------------------------------------------
+      - name: Generate HTML audit report
+        run: node bobguard/bin/bobguard.js audit ./demo-app --format html --out audit-report.html
+
+      - name: Upload HTML audit report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: bobguard-audit-report-node${{ matrix.node-version }}
+          path: audit-report.html
+          retention-days: 30
+
+      # -----------------------------------------------------------------------
+      # Generate Markdown summary report
+      # -----------------------------------------------------------------------
+      - name: Generate Markdown report
+        run: node bobguard/bin/bobguard.js audit ./demo-app --format md --out SECURITY.md
+
+      - name: Upload Markdown security report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: bobguard-security-md-node${{ matrix.node-version }}
+          path: SECURITY.md
+          retention-days: 30

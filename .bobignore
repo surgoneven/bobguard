@@ -1,0 +1,9 @@
+node_modules/
+.git/
+dist/
+build/
+coverage/
+*.min.js
+bobguard-report.json
+bobguard-results.sarif.json
+bobguard-release-report.json

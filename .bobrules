@@ -1,0 +1,12 @@
+# IBM Bob Agent Configuration & Code Rules
+
+## Core Operational Rules
+1. Never modify code without understanding existing dependencies and running tests.
+2. Maintain 100% test pass rate across all test suites after any change.
+3. Code changes must prioritize security, performance, and clean maintainability.
+
+## BobGuard Architecture Rules
+1. All generated reports (JSON, SARIF) MUST use relative POSIX file paths (e.g., `demo-app/server.js`), NEVER OS-specific absolute paths (no `C:\` or `/Users/`).
+2. Error handlers must log detailed error messages server-side (`console.error`) and return generic error payloads to HTTP clients.
+3. Do not add external dependencies unless strictly necessary.
+4. Remove temporary scratchpad comments, dev annotations, and debug console statements before final submission.

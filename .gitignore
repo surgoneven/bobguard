@@ -1,0 +1,47 @@
+﻿# Dependencies
+node_modules/
+
+# BobGuard scan output artifacts
+*.sarif.json
+bom.json
+bobguard-report.json
+bobguard-report-final.json
+bobguard-release-report.json
+bobguard-results.sarif.json
+bobguard-scan.json
+bobguard-test.json
+audit-report.html
+compliance.md
+compliance-matrix.md
+SECURITY.md
+
+# Environment / secrets
+.env
+.env.local
+.env.*.local
+
+# Coverage and logs
+coverage/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS artifacts
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor directories
+.idea/
+*.swp
+*.swo
+
+# Build outputs
+dist/
+build/
+
+# Local Bob IDE sessions
+.bob/
+bob_sessions/
+mnt/

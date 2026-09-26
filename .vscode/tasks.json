@@ -1,0 +1,42 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "BobGuard: Security Scan",
+      "type": "shell",
+      "command": "node \"C:\\Users\\rafan\\OneDrive\\Desktop\\bobguard-hackathon\\bobguard\\bin\\bobguard.js\" audit \"./demo-app\"",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "clear": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "BobGuard: Generate SBOM",
+      "type": "shell",
+      "command": "node \"C:\\Users\\rafan\\OneDrive\\Desktop\\bobguard-hackathon\\bobguard\\bin\\bobguard.js\" audit \"./demo-app\" --sbom bom.json",
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "BobGuard: Compliance Attestation",
+      "type": "shell",
+      "command": "node \"C:\\Users\\rafan\\OneDrive\\Desktop\\bobguard-hackathon\\bobguard\\bin\\bobguard.js\" audit \"./demo-app\" --attestation compliance-matrix.md",
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    }
+  ]
+}

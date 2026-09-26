@@ -1,0 +1,21 @@
+{
+  "name": "demo-app",
+  "version": "1.0.0",
+  "description": "BobGuard Stage 1 target microservice - intentionally vulnerable for audit demo",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "jest --coverage"
+  },
+  "dependencies": {
+    "express": "^4.17.3",
+    "body-parser": "^1.20.3",
+    "sqlite3": "^5.1.7",
+    "lodash": "4.17.21"
+  },
+  "devDependencies": {
+    "jest": "^29.0.0",
+    "supertest": "^6.3.0"
+  },
+  "license": "MIT"
+}

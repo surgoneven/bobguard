@@ -1,0 +1,26 @@
+{
+  "name": "bobguard",
+  "version": "0.2.0",
+  "description": "BobGuard - Autonomous Developer Workflow & Release Readiness Orchestrator CLI",
+  "main": "bin/bobguard.js",
+  "bin": {
+    "bobguard": "./bin/bobguard.js"
+  },
+  "scripts": {
+    "start": "node bin/bobguard.js",
+    "test": "jest --testPathPattern=test/"
+  },
+  "dependencies": {
+    "commander": "^12.1.0",
+    "chalk": "^4.1.2",
+    "@babel/parser": "^7.24.0",
+    "@babel/traverse": "^7.24.0"
+  },
+  "devDependencies": {
+    "jest": "^29.0.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "license": "MIT"
+}
