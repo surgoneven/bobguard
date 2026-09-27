@@ -34,6 +34,7 @@ desktop.ini
 
 # Editor directories
 .idea/
+.vscode/
 *.swp
 *.swo
 

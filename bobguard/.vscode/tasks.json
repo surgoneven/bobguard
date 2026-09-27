@@ -4,7 +4,7 @@
     {
       "label": "BobGuard: Security Scan",
       "type": "shell",
-      "command": "node \"C:\\Users\\rafan\\OneDrive\\Desktop\\bobguard-hackathon\\bobguard\\bin\\bobguard.js\" audit \"./demo-app\"",
+      "command": "node \"${workspaceFolder}/bobguard/bin/bobguard.js\" audit \"../demo-app\"",
       "group": {
         "kind": "build",
         "isDefault": true
@@ -19,7 +19,7 @@
     {
       "label": "BobGuard: Generate SBOM",
       "type": "shell",
-      "command": "node \"C:\\Users\\rafan\\OneDrive\\Desktop\\bobguard-hackathon\\bobguard\\bin\\bobguard.js\" audit \"./demo-app\" --sbom bom.json",
+      "command": "node \"${workspaceFolder}/bobguard/bin/bobguard.js\" audit \"../demo-app\" --sbom bom.json",
       "group": "build",
       "presentation": {
         "reveal": "always",
@@ -30,7 +30,7 @@
     {
       "label": "BobGuard: Compliance Attestation",
       "type": "shell",
-      "command": "node \"C:\\Users\\rafan\\OneDrive\\Desktop\\bobguard-hackathon\\bobguard\\bin\\bobguard.js\" audit \"./demo-app\" --attestation compliance-matrix.md",
+      "command": "node \"${workspaceFolder}/bobguard/bin/bobguard.js\" audit \"../demo-app\" --attestation compliance-matrix.md",
       "group": "build",
       "presentation": {
         "reveal": "always",
