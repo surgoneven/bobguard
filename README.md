@@ -11,6 +11,14 @@
 
 ---
 
+## Executive Summary
+
+![BobGuard — Executive Summary](https://github.com/surgoneven/bobguard/assets/image1.png)
+
+![Hackathon Value Proposition](https://github.com/surgoneven/bobguard/assets/image2.png)
+
+---
+
 ## Architecture
 
 ```
@@ -25,7 +33,7 @@
 └────────────────┘      └─────────────────┘
 ```
 
-The engine performs two sequential AST traversals per file. The first pre-pass builds a function-level taint-transfer summary (recognising sanitizer helpers), and the second performs a full source-to-sink dataflow walk. Files that fail to parse fall back to a regex-based scanner so a single bad file never halts the audit.
+The engine performs two sequential AST traversals per file. The first pre-pass builds a function-level taint-transfer summary (recognising sanitizer helpers), and the second performs a full source-to-[...]
 
 ---
 
