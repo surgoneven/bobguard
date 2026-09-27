@@ -11,11 +11,12 @@
 
 ---
 
-## Executive Summary
+## Summary
 
-![BobGuard — Executive Summary](https://github.com/surgoneven/bobguard/assets/image1.png)
+<img width="940" height="646" alt="bobguard-summary1" src="https://github.com/user-attachments/assets/e2b8bcc7-7fc2-4e3f-861f-09f70b2f93a2" />
 
-![Hackathon Value Proposition](https://github.com/surgoneven/bobguard/assets/image2.png)
+<img width="933" height="116" alt="bobguard-summary2" src="https://github.com/user-attachments/assets/70c69aac-2a3f-42b8-8cf9-70b1c961351d" />
+
 
 ---
 
