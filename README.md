@@ -13,10 +13,8 @@
 
 ## Summary
 
-<img width="940" height="646" alt="bobguard-summary1" src="https://github.com/user-attachments/assets/e2b8bcc7-7fc2-4e3f-861f-09f70b2f93a2" />
-
-<img width="933" height="116" alt="bobguard-summary2" src="https://github.com/user-attachments/assets/70c69aac-2a3f-42b8-8cf9-70b1c961351d" />
-
+<img width="940" height="646" alt="bobguard-summary1" src="https://github.com/user-attachments/assets/8fe1da46-594a-4f40-86b1-7242c50c0c1f" />
+<img width="933" height="116" alt="bobguard-summary2" src="https://github.com/user-attachments/assets/e6d14435-15a2-466d-b9a8-4b42d3a253e6" />
 
 ---
 
